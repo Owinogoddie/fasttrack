@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "leaflet/dist/leaflet.css";
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+
+  body {
+    @apply font-body text-base text-secondary-900;
+  }
+}
+
+@layer components {
+  .heading-1 {
+    @apply font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+
+  .heading-2 {
+    @apply font-heading text-3xl md:text-4xl font-bold leading-tight;
+  }
+
+  .body-large {
+    @apply font-body text-lg leading-relaxed;
+  }
+
+  .body-base {
+    @apply font-body text-base leading-relaxed;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 
+           text-sm font-medium transition-colors focus-visible:outline-none 
+           focus-visible:ring-2 focus-visible:ring-primary-500 disabled:pointer-events-none 
+           disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-100 text-secondary-900 hover:bg-secondary-200 active:bg-secondary-300;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-50;
+  }
+
+  .input {
+    @apply rounded-lg border border-secondary-200 bg-white px-4 py-3 text-sm 
+           file:border-0 file:bg-transparent file:text-sm file:font-medium 
+           placeholder:text-secondary-400 focus-visible:outline-none 
+           focus-visible:ring-2 focus-visible:ring-primary-500 
+           disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .card {
+    @apply rounded-lg bg-white shadow-soft p-6;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+}
+
+/* Custom animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.slide-down {
+  animation: slideDown 0.5s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-secondary-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-400 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-500;
+}
+
+/* Typography styles */
+.heading-1 {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+}
+
+.heading-2 {
+  @apply text-3xl md:text-4xl font-bold leading-tight;
+}
+
+.heading-3 {
+  @apply text-2xl md:text-3xl font-bold leading-tight;
+}
+
+.body-large {
+  @apply text-lg leading-relaxed;
+}
+
+.body-base {
+  @apply text-base leading-relaxed;
+}
+
+.body-small {
+  @apply text-sm leading-relaxed;
+}
+
+/* Layout utilities */
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.grid-auto-fit {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+}
+
+/* Responsive padding utilities */
+.section-padding {
+  @apply py-12 md:py-16 lg:py-24;
+}
+
+.section-margin {
+  @apply my-12 md:my-16 lg:my-24;
+}
+
+/* Form styles */
+.form-group {
+  @apply space-y-2;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-secondary-700;
+}
+
+.form-error {
+  @apply text-red-500 text-sm mt-1;
+}
+
+/* Navigation styles */
+.nav-link {
+  @apply text-secondary-600 hover:text-primary-600 transition-colors;
+}
+
+.nav-link-active {
+  @apply text-primary-600 font-medium;
+}

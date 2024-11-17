@@ -1,0 +1,99 @@
+Here are some other great font combinations you could use instead:
+
+Modern & Clean
+
+typescriptCopyimport { Outfit, Source_Sans_3 } from 'next/font/google';
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-outfit',
+});
+
+const sourceSans = Source_Sans_3({
+  subsets: ['latin'],
+  variable: '--font-source-sans',
+});
+
+Professional & Corporate
+
+typescriptCopyimport { Montserrat, Open_Sans } from 'next/font/google';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+});
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  variable: '--font-open-sans',
+});
+
+Luxury & Elegant
+
+typescriptCopyimport { Cormorant, Lora } from 'next/font/google';
+
+const cormorant = Cormorant({
+  subsets: ['latin'],
+  variable: '--font-cormorant',
+});
+
+const lora = Lora({
+  subsets: ['latin'],
+  variable: '--font-lora',
+});
+
+Creative & Modern
+
+typescriptCopyimport { Plus_Jakarta_Sans, Sora } from 'next/font/google';
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ['latin'],
+  variable: '--font-jakarta',
+});
+
+const sora = Sora({
+  subsets: ['latin'],
+  variable: '--font-sora',
+});
+
+Tech & Contemporary
+
+typescriptCopyimport { Space_Grotesk, DM_Sans } from 'next/font/google';
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-space-grotesk',
+});
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
+});
+Then in your CSS, you can define typography styles like:
+cssCopy@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+  
+  body {
+    @apply font-body text-base text-secondary-900;
+  }
+}
+
+@layer components {
+  .heading-1 {
+    @apply font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+  
+  .heading-2 {
+    @apply font-heading text-3xl md:text-4xl font-bold leading-tight;
+  }
+  
+  .body-large {
+    @apply font-body text-lg leading-relaxed;
+  }
+  
+  .body-base {
+    @apply font-body text-base leading-relaxed;
+  }
+}
