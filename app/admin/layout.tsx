@@ -16,19 +16,22 @@ export default function AdminLayout({
 
   // Handle screen resize
   useEffect(() => {
-    const checkScreenSize = () => {
-      const mobile = window.innerWidth < 1024
-      setIsMobile(mobile)
-      setIsSidebarOpen(!mobile)
+    if (typeof window !== 'undefined') {
+      const checkScreenSize = () => {
+        const mobile = window.innerWidth < 1024;
+        setIsMobile(mobile);
+        setIsSidebarOpen(!mobile);
+      };
+  
+      // Check on mount
+      checkScreenSize();
+  
+      // Add resize listener
+      window.addEventListener('resize', checkScreenSize);
+      return () => window.removeEventListener('resize', checkScreenSize);
     }
-
-    // Check on mount
-    checkScreenSize()
-
-    // Add resize listener
-    window.addEventListener('resize', checkScreenSize)
-    return () => window.removeEventListener('resize', checkScreenSize)
-  }, [])
+  }, []);
+  
 
   // Handle sidebar toggle
   const toggleSidebar = () => {
