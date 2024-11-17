@@ -4,41 +4,42 @@ import Footer from '@/components/admin/Footer'
 import Sidebar from '@/components/admin/Sidebar'
 import TopNav from '@/components/admin/TopNav'
 
-export default function AdminLayout({ 
-  children 
-}: { 
-  children: React.ReactNode 
+export default function AdminLayout({
+  children
+}: {
+  children: React.ReactNode
 }) {
-  // Track sidebar state and screen size
   const [isMobile, setIsMobile] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const [isCollapsed, setIsCollapsed] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
-  // Handle screen resize
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const checkScreenSize = () => {
-        const mobile = window.innerWidth < 1024;
-        setIsMobile(mobile);
-        setIsSidebarOpen(!mobile);
-      };
-  
-      // Check on mount
-      checkScreenSize();
-  
-      // Add resize listener
-      window.addEventListener('resize', checkScreenSize);
-      return () => window.removeEventListener('resize', checkScreenSize);
+    setMounted(true)
+    
+    const checkScreenSize = () => {
+      const mobile = window.innerWidth < 1024
+      setIsMobile(mobile)
+      setIsSidebarOpen(!mobile)
     }
-  }, []);
-  
+    
+    checkScreenSize()
+    
+    window.addEventListener('resize', checkScreenSize)
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
+
+  // Prevent hydration errors by not rendering until mounted
+  if (!mounted) {
+    return null // or a loading state
+  }
 
   // Handle sidebar toggle
   const toggleSidebar = () => {
     if (isMobile) {
       setIsSidebarOpen(prev => !prev)
     } else {
-      setIsCollapsed(prev => !prev) 
+      setIsCollapsed(prev => !prev)
     }
   }
 
